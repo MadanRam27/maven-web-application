@@ -3,11 +3,15 @@ node
 
 def mvnHome = tool name: 'maven3.9.1'
 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '15', 
+daysToKeepStr: '', numToKeepStr: '15')), [$class: 'JobLocalConfiguration', changeReasonComment: ''],
+pipelineTriggers([pollSCM('* * * * *')])])
+  
 stage('GetCodeFromGit'){
   git branch: 'development', credentialsId: 'd528efbd-5aa4-493c-b7be-b6fd23832ac3',
   url: 'https://github.com/MadanRam27/maven-web-application.git' 
 }
-
+/*
 stage('Build'){
     sh "${mvnHome}/bin/mvn clean package"
 }
@@ -29,6 +33,6 @@ stage('DeployApptToTomcatserver'){
 stage('SendEmail'){
     emailext body: 'Buld is succesful', subject: 'Buld success', to: 'madanram2726@gmail.com'
 }
-
+*/
 
 }
