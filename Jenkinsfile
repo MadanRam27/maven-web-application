@@ -19,11 +19,11 @@ stage('GetCodeFromGit'){
   git branch: 'development', credentialsId: 'd528efbd-5aa4-493c-b7be-b6fd23832ac3',
   url: 'https://github.com/MadanRam27/maven-web-application.git' 
 }
-/*
+
 stage('Build'){
     sh "${mvnHome}/bin/mvn clean package"
 }
-
+/*
 stage('SonarQubeReport'){
      sh "${mvnHome}/bin/mvn sonar:sonar"
 }
