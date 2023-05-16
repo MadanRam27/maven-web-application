@@ -1,4 +1,4 @@
-node
+node('metlife-node')
 {
 
   echo "GitHub BranhName ${env.BRANCH_NAME}"
